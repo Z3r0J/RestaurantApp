@@ -104,8 +104,9 @@ namespace RestaurantApp
             this.Controls.Add(this.BtnOk);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmQuestion";
-            this.Text = "FrmQuestion";
+            this.Text = "Question";
             this.ResumeLayout(false);
             this.PerformLayout();
 

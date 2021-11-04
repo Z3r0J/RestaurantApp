@@ -12,5 +12,9 @@ namespace BusinessLayer
         public string DessertDish { get; set; }
         public string Beverage { get; set; }
 
+        public string GetOrders() {
+            return $"Name: {ClientName} | Entry Dish: {EntryDish} | Main Dish: {MainDish} | Dessert Dish: {DessertDish} | Beverage: {Beverage}";
+        }
+
     }
 }

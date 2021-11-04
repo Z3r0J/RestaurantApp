@@ -16,6 +16,9 @@ namespace RestaurantApp
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int IParam);
+
+        private FrmQuestion question;
+        public DialogResult result;
         public FrmTakeOrder(int NumberPeople)
         {
             InitializeComponent();
@@ -63,7 +66,12 @@ namespace RestaurantApp
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            this.Close();
+            question = new FrmQuestion("Are you sure you want to close the form?");
+            result = question.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                this.Close();
+            }
         }
 
 
@@ -294,7 +302,54 @@ namespace RestaurantApp
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            this.Close();
+            AddOrders();
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            question = new FrmQuestion("Are you sure you want to close the form?");
+            result = question.ShowDialog();
+            if (result== DialogResult.OK)
+            {
+                this.Close();
+            }
+        }
+
+        private void AddOrders() {
+            ComboBoxItem EntryDishes = CbxEntryDishes.SelectedItem as ComboBoxItem;
+            ComboBoxItem MainDishes = CbxMainDishes.SelectedItem as ComboBoxItem;
+            ComboBoxItem DessertDishes = CbxDessertDishes.SelectedItem as ComboBoxItem;
+            ComboBoxItem Beverage = CbxBeverage.SelectedItem as ComboBoxItem;
+
+            if (EntryDishes.Value == null)
+            {
+                FrmWarning warning = new FrmWarning("Select a Entry Dish");
+                warning.ShowDialog();
+            }
+            else if (MainDishes.Value == null)
+            {
+                FrmWarning warning = new FrmWarning("Select a Main Dish");
+                warning.ShowDialog();
+            }
+            else if (DessertDishes.Value == null )
+            {
+                FrmWarning warning = new FrmWarning("Select a Dessert Dish");
+                warning.ShowDialog();
+            }
+            else if (Beverage.Value==null)
+            {
+                FrmWarning warning = new FrmWarning("Select a Beverage");
+                warning.ShowDialog();
+            }
+            else if(string.IsNullOrEmpty(txtName.Text))
+            {
+                FrmWarning warning = new FrmWarning("Insert the name of the client");
+                warning.ShowDialog();
+            }
+            else
+            {
+                this.Close();
+            }
         }
     }
 }

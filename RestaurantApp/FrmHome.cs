@@ -18,14 +18,12 @@ namespace RestaurantApp
         private FrmHome()
         {
             InitializeComponent();
-        }
-
-        private void TblPrincipal_Paint(object sender, PaintEventArgs e)
+        }    
+        private void PnInicial_MouseDown(object sender, MouseEventArgs e)
         {
-
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-
-
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
@@ -57,6 +55,12 @@ namespace RestaurantApp
             order.Show();
             this.Hide();
         }
+        private void btnMesa2_Click(object sender, EventArgs e)
+        {
+            FrmPeopleQuantity order = new FrmPeopleQuantity();
+            order.Show();
+            this.Hide();
+        }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -75,10 +79,53 @@ namespace RestaurantApp
 
         }
 
-        private void PnInicial_Paint(object sender, PaintEventArgs e)
+        private void btnMesa3_Click(object sender, EventArgs e)
         {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
+            FrmPeopleQuantity order = new FrmPeopleQuantity();
+            order.Show();
+            this.Hide();
+        }
+
+        private void btnMesa4_Click(object sender, EventArgs e)
+        {
+            FrmPeopleQuantity order = new FrmPeopleQuantity();
+            order.Show();
+            this.Hide();
+        }
+
+        private void btnMesa5_Click(object sender, EventArgs e)
+        {
+            FrmPeopleQuantity order = new FrmPeopleQuantity();
+            order.Show();
+            this.Hide();
+        }
+
+        private void btnMesa6_Click(object sender, EventArgs e)
+        {
+            FrmPeopleQuantity order = new FrmPeopleQuantity();
+            order.Show();
+            this.Hide();
+        }
+
+        private void btnMesa7_Click(object sender, EventArgs e)
+        {
+            FrmPeopleQuantity order = new FrmPeopleQuantity();
+            order.Show();
+            this.Hide();
+        }
+
+        private void btnMesa8_Click(object sender, EventArgs e)
+        {
+            FrmPeopleQuantity order = new FrmPeopleQuantity();
+            order.Show();
+            this.Hide();
+        }
+
+        private void BtnVerOrdenes_Click(object sender, EventArgs e)
+        {
+            FrmListOrders listOrders = new FrmListOrders();
+            this.Hide();
+            listOrders.Show();
         }
     }
 }

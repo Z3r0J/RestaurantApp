@@ -31,6 +31,7 @@ namespace RestaurantApp
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTakeOrder));
             this.PnInit = new System.Windows.Forms.Panel();
+            this.PbxIcon = new System.Windows.Forms.PictureBox();
             this.LblTitle = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -47,20 +48,20 @@ namespace RestaurantApp
             this.CbxMainDishes = new System.Windows.Forms.ComboBox();
             this.CbxBeverage = new System.Windows.Forms.ComboBox();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.PnInit.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // PnInit
             // 
             this.PnInit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(55)))), ((int)(((byte)(5)))));
+            this.PnInit.Controls.Add(this.PbxIcon);
             this.PnInit.Controls.Add(this.LblTitle);
             this.PnInit.Controls.Add(this.pictureBox3);
             this.PnInit.Controls.Add(this.pictureBox2);
@@ -68,9 +69,18 @@ namespace RestaurantApp
             this.PnInit.Dock = System.Windows.Forms.DockStyle.Top;
             this.PnInit.Location = new System.Drawing.Point(0, 0);
             this.PnInit.Name = "PnInit";
-            this.PnInit.Size = new System.Drawing.Size(623, 46);
+            this.PnInit.Size = new System.Drawing.Size(476, 46);
             this.PnInit.TabIndex = 0;
             this.PnInit.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PnInit_MouseDown);
+            // 
+            // PbxIcon
+            // 
+            this.PbxIcon.Image = ((System.Drawing.Image)(resources.GetObject("PbxIcon.Image")));
+            this.PbxIcon.Location = new System.Drawing.Point(4, 6);
+            this.PbxIcon.Name = "PbxIcon";
+            this.PbxIcon.Size = new System.Drawing.Size(32, 32);
+            this.PbxIcon.TabIndex = 14;
+            this.PbxIcon.TabStop = false;
             // 
             // LblTitle
             // 
@@ -87,7 +97,7 @@ namespace RestaurantApp
             // 
             this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(531, 11);
+            this.pictureBox3.Location = new System.Drawing.Point(384, 11);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(27, 26);
             this.pictureBox3.TabIndex = 12;
@@ -98,7 +108,7 @@ namespace RestaurantApp
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(561, 10);
+            this.pictureBox2.Location = new System.Drawing.Point(414, 10);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(29, 28);
             this.pictureBox2.TabIndex = 11;
@@ -109,7 +119,7 @@ namespace RestaurantApp
             // 
             this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(593, 10);
+            this.pictureBox4.Location = new System.Drawing.Point(446, 10);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(24, 28);
             this.pictureBox4.TabIndex = 10;
@@ -132,7 +142,7 @@ namespace RestaurantApp
             this.tableLayoutPanel1.Controls.Add(this.CbxMainDishes, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.CbxBeverage, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.txtName, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblName, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 46);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -143,7 +153,7 @@ namespace RestaurantApp
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(623, 454);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(476, 454);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // CbxDessertDishes
@@ -154,60 +164,60 @@ namespace RestaurantApp
             this.CbxDessertDishes.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CbxDessertDishes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(46)))), ((int)(((byte)(119)))));
             this.CbxDessertDishes.FormattingEnabled = true;
-            this.CbxDessertDishes.Location = new System.Drawing.Point(314, 266);
+            this.CbxDessertDishes.Location = new System.Drawing.Point(241, 266);
             this.CbxDessertDishes.Name = "CbxDessertDishes";
-            this.CbxDessertDishes.Size = new System.Drawing.Size(306, 31);
+            this.CbxDessertDishes.Size = new System.Drawing.Size(232, 31);
             this.CbxDessertDishes.TabIndex = 10;
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label2.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(213, 127);
+            this.label2.Location = new System.Drawing.Point(3, 127);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 23);
+            this.label2.Size = new System.Drawing.Size(232, 23);
             this.label2.TabIndex = 1;
             this.label2.Text = "Entry dishes: ";
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.label3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label3.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(215, 202);
+            this.label3.Location = new System.Drawing.Point(3, 202);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 23);
+            this.label3.Size = new System.Drawing.Size(232, 23);
             this.label3.TabIndex = 2;
             this.label3.Text = "Main dishes: ";
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.label4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label4.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(203, 277);
+            this.label4.Location = new System.Drawing.Point(3, 277);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 23);
+            this.label4.Size = new System.Drawing.Size(232, 23);
             this.label4.TabIndex = 3;
             this.label4.Text = "Dessert dishes:";
             // 
             // label5
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.label5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label5.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(233, 352);
+            this.label5.Location = new System.Drawing.Point(3, 352);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(75, 23);
+            this.label5.Size = new System.Drawing.Size(232, 23);
             this.label5.TabIndex = 4;
             this.label5.Text = "Beverage: ";
             // 
@@ -217,11 +227,14 @@ namespace RestaurantApp
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSave.Location = new System.Drawing.Point(3, 387);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(305, 64);
+            this.btnSave.Size = new System.Drawing.Size(232, 64);
             this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Save";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -229,14 +242,18 @@ namespace RestaurantApp
             // 
             this.BtnCancel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCancel.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BtnCancel.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BtnCancel.ForeColor = System.Drawing.Color.White;
-            this.BtnCancel.Location = new System.Drawing.Point(314, 387);
+            this.BtnCancel.Image = ((System.Drawing.Image)(resources.GetObject("BtnCancel.Image")));
+            this.BtnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnCancel.Location = new System.Drawing.Point(241, 387);
             this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Size = new System.Drawing.Size(306, 64);
+            this.BtnCancel.Size = new System.Drawing.Size(232, 64);
             this.BtnCancel.TabIndex = 6;
             this.BtnCancel.Text = "Cancel";
+            this.BtnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnCancel.UseVisualStyleBackColor = true;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // CbxEntryDishes
             // 
@@ -246,9 +263,9 @@ namespace RestaurantApp
             this.CbxEntryDishes.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CbxEntryDishes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(46)))), ((int)(((byte)(119)))));
             this.CbxEntryDishes.FormattingEnabled = true;
-            this.CbxEntryDishes.Location = new System.Drawing.Point(314, 116);
+            this.CbxEntryDishes.Location = new System.Drawing.Point(241, 116);
             this.CbxEntryDishes.Name = "CbxEntryDishes";
-            this.CbxEntryDishes.Size = new System.Drawing.Size(306, 31);
+            this.CbxEntryDishes.Size = new System.Drawing.Size(232, 31);
             this.CbxEntryDishes.TabIndex = 7;
             // 
             // CbxMainDishes
@@ -259,9 +276,9 @@ namespace RestaurantApp
             this.CbxMainDishes.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CbxMainDishes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(46)))), ((int)(((byte)(119)))));
             this.CbxMainDishes.FormattingEnabled = true;
-            this.CbxMainDishes.Location = new System.Drawing.Point(314, 191);
+            this.CbxMainDishes.Location = new System.Drawing.Point(241, 191);
             this.CbxMainDishes.Name = "CbxMainDishes";
-            this.CbxMainDishes.Size = new System.Drawing.Size(306, 31);
+            this.CbxMainDishes.Size = new System.Drawing.Size(232, 31);
             this.CbxMainDishes.TabIndex = 8;
             // 
             // CbxBeverage
@@ -272,9 +289,9 @@ namespace RestaurantApp
             this.CbxBeverage.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CbxBeverage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(46)))), ((int)(((byte)(119)))));
             this.CbxBeverage.FormattingEnabled = true;
-            this.CbxBeverage.Location = new System.Drawing.Point(314, 341);
+            this.CbxBeverage.Location = new System.Drawing.Point(241, 341);
             this.CbxBeverage.Name = "CbxBeverage";
-            this.CbxBeverage.Size = new System.Drawing.Size(306, 31);
+            this.CbxBeverage.Size = new System.Drawing.Size(232, 31);
             this.CbxBeverage.TabIndex = 9;
             // 
             // txtName
@@ -283,32 +300,22 @@ namespace RestaurantApp
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtName.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtName.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtName.Location = new System.Drawing.Point(314, 42);
+            this.txtName.Location = new System.Drawing.Point(241, 42);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(306, 30);
+            this.txtName.Size = new System.Drawing.Size(232, 30);
             this.txtName.TabIndex = 11;
             // 
-            // panel1
+            // lblName
             // 
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(305, 69);
-            this.panel1.TabIndex = 12;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.label1.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(250, 42);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 23);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Name: ";
+            this.lblName.AutoSize = true;
+            this.lblName.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblName.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblName.ForeColor = System.Drawing.Color.White;
+            this.lblName.Location = new System.Drawing.Point(3, 52);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(232, 23);
+            this.lblName.TabIndex = 12;
+            this.lblName.Text = "Name: ";
             // 
             // label6
             // 
@@ -328,22 +335,22 @@ namespace RestaurantApp
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.ClientSize = new System.Drawing.Size(623, 500);
+            this.ClientSize = new System.Drawing.Size(476, 500);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.PnInit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmTakeOrder";
             this.Text = "FrmTakeOrder";
             this.Load += new System.EventHandler(this.FrmTakeOrder_Load);
             this.PnInit.ResumeLayout(false);
             this.PnInit.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -361,8 +368,6 @@ namespace RestaurantApp
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label LblTitle;
         public System.Windows.Forms.ComboBox CbxDessertDishes;
@@ -370,5 +375,7 @@ namespace RestaurantApp
         public System.Windows.Forms.ComboBox CbxMainDishes;
         public System.Windows.Forms.ComboBox CbxBeverage;
         public System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.PictureBox PbxIcon;
     }
 }

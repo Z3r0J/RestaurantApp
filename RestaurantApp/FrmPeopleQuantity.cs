@@ -10,8 +10,10 @@ using BusinessLayer;
 
 namespace RestaurantApp
 {
+    
     public partial class FrmPeopleQuantity : Form
     {
+        public bool cancelOrders { get; set; } = false;
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -99,12 +101,28 @@ namespace RestaurantApp
         }
 
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void FrmPeopleQuantity_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FrmHome.Instancia.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void IteratorQuantityPeople()
         {
             ComboBoxItem QuantityPeople = CbxCantidadDePersonas.SelectedItem as ComboBoxItem;
             if (QuantityPeople.Value == null)
             {
-
+                FrmWarning warning = new FrmWarning("Select a Quantity");
+                warning.ShowDialog();
             }
             else
             {
@@ -114,50 +132,58 @@ namespace RestaurantApp
                 for (int i = 0; i < RepositoryOrders.Instancia.PeopleQuantity; i++)
                 {
                     takeOrders[i] = new FrmTakeOrder(i + 1);
+                    this.Hide();
                     takeOrders[i].ShowDialog();
+                    this.Show();
+
+                    if (takeOrders[i].result == DialogResult.OK)
+                    {
+                        cancelOrders = true;
+                        break;
+                    }
                 }
 
-                FrmQuestion question = new FrmQuestion("Do you want to Add all orders from this table?");
-
-                DialogResult result = question.ShowDialog();
-
-                if (result == DialogResult.OK)
+                if (cancelOrders != true)
                 {
-                    ServiceOrders[] serviceOrders = new ServiceOrders[4];
-                    Orders[] orders = new Orders[4];
+                    FrmQuestion question = new FrmQuestion("Do you want to Add all orders from this table?");
 
-                    for (int i = 0; i < RepositoryOrders.Instancia.PeopleQuantity; i++)
+                    DialogResult result = question.ShowDialog();
+
+                    if (result == DialogResult.OK)
                     {
-                        orders[i] = new Orders()
+                        ServiceOrders[] serviceOrders = new ServiceOrders[4];
+                        Orders[] orders = new Orders[4];
+
+                        for (int i = 0; i < RepositoryOrders.Instancia.PeopleQuantity; i++)
                         {
-                            ClientName = takeOrders[i].txtName.Text,
-                            MainDish = takeOrders[i].CbxMainDishes.Text,
-                            EntryDish = takeOrders[i].CbxEntryDishes.Text,
-                            DessertDish = takeOrders[i].CbxDessertDishes.Text,
-                            Beverage = takeOrders[i].CbxBeverage.Text
-                        };
-                        serviceOrders[i] = new ServiceOrders();
-                        serviceOrders[i].Add(orders[i]);
+                            orders[i] = new Orders()
+                            {
+                                ClientName = takeOrders[i].txtName.Text,
+                                MainDish = takeOrders[i].CbxMainDishes.Text,
+                                EntryDish = takeOrders[i].CbxEntryDishes.Text,
+                                DessertDish = takeOrders[i].CbxDessertDishes.Text,
+                                Beverage = takeOrders[i].CbxBeverage.Text
+                            };
+                            serviceOrders[i] = new ServiceOrders();
+                            serviceOrders[i].Add(orders[i]);
+                        }
+                        FrmWarning warning = new FrmWarning("All orders was Add sucesfully, please click continue");
+                        warning.ShowDialog();
+                        this.Close();
                     }
-
-
+                    else
+                    {
+                        FrmWarning warning = new FrmWarning("All orders has been removed, you cancel all order from this table.");
+                        warning.ShowDialog();
+                    }
                 }
                 else
                 {
-                    this.Close();
+                    FrmWarning warning = new FrmWarning("All orders has been removed, you cannot cancel any order from the table.");
+                    warning.ShowDialog();
                 }
             }
 
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void FrmPeopleQuantity_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            FrmHome.Instancia.Show();
         }
     }
 }

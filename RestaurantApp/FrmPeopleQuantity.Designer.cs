@@ -36,11 +36,14 @@ namespace RestaurantApp
             this.button1 = new System.Windows.Forms.Button();
             this.CbxCantidadDePersonas = new System.Windows.Forms.ComboBox();
             this.PnInit = new System.Windows.Forms.Panel();
+            this.PbxIcon = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.LblTitle = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.PnInit.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -83,15 +86,14 @@ namespace RestaurantApp
             // 
             // lblCantidadPersona
             // 
-            this.lblCantidadPersona.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCantidadPersona.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblCantidadPersona.Font = new System.Drawing.Font("Agency FB", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblCantidadPersona.ForeColor = System.Drawing.Color.White;
             this.lblCantidadPersona.Location = new System.Drawing.Point(3, 44);
             this.lblCantidadPersona.Name = "lblCantidadPersona";
             this.lblCantidadPersona.Size = new System.Drawing.Size(253, 27);
             this.lblCantidadPersona.TabIndex = 0;
-            this.lblCantidadPersona.Text = "Cantidad de Personas: ";
+            this.lblCantidadPersona.Text = "Quantity of People:";
             // 
             // button1
             // 
@@ -108,12 +110,12 @@ namespace RestaurantApp
             this.button1.Text = "Cancelar";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // CbxCantidadDePersonas
             // 
-            this.CbxCantidadDePersonas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.CbxCantidadDePersonas.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.CbxCantidadDePersonas.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.CbxCantidadDePersonas.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CbxCantidadDePersonas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(46)))), ((int)(((byte)(119)))));
             this.CbxCantidadDePersonas.FormattingEnabled = true;
@@ -125,6 +127,8 @@ namespace RestaurantApp
             // PnInit
             // 
             this.PnInit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(55)))), ((int)(((byte)(5)))));
+            this.PnInit.Controls.Add(this.LblTitle);
+            this.PnInit.Controls.Add(this.PbxIcon);
             this.PnInit.Controls.Add(this.pictureBox3);
             this.PnInit.Controls.Add(this.pictureBox2);
             this.PnInit.Controls.Add(this.pictureBox1);
@@ -136,9 +140,19 @@ namespace RestaurantApp
             this.PnInit.TabIndex = 1;
             this.PnInit.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PnInit_MouseDown);
             // 
+            // PbxIcon
+            // 
+            this.PbxIcon.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PbxIcon.Image = ((System.Drawing.Image)(resources.GetObject("PbxIcon.Image")));
+            this.PbxIcon.Location = new System.Drawing.Point(0, 0);
+            this.PbxIcon.Name = "PbxIcon";
+            this.PbxIcon.Size = new System.Drawing.Size(32, 34);
+            this.PbxIcon.TabIndex = 15;
+            this.PbxIcon.TabStop = false;
+            // 
             // pictureBox3
             // 
-            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(405, 7);
             this.pictureBox3.Name = "pictureBox3";
@@ -169,6 +183,18 @@ namespace RestaurantApp
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // LblTitle
+            // 
+            this.LblTitle.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.LblTitle.AutoSize = true;
+            this.LblTitle.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LblTitle.ForeColor = System.Drawing.Color.White;
+            this.LblTitle.Location = new System.Drawing.Point(37, 5);
+            this.LblTitle.Name = "LblTitle";
+            this.LblTitle.Size = new System.Drawing.Size(131, 25);
+            this.LblTitle.TabIndex = 17;
+            this.LblTitle.Text = "QUANTITY PEOPLE";
+            // 
             // FrmPeopleQuantity
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -178,12 +204,15 @@ namespace RestaurantApp
             this.Controls.Add(this.PnInit);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPeopleQuantity";
-            this.Text = "FrmCantidadPersona";
+            this.Text = "Quantity of People";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmPeopleQuantity_FormClosed);
             this.Load += new System.EventHandler(this.FrmCantidadPersona_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.PnInit.ResumeLayout(false);
+            this.PnInit.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -202,5 +231,7 @@ namespace RestaurantApp
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox PbxIcon;
+        private System.Windows.Forms.Label LblTitle;
     }
 }
