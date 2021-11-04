@@ -55,6 +55,7 @@ namespace RestaurantApp
             CbxCantidadDePersonas.Items.Add(TwoPeople);
             CbxCantidadDePersonas.Items.Add(ThreePeople);
             CbxCantidadDePersonas.Items.Add(FourPeople);
+            CbxCantidadDePersonas.SelectedIndex = 0;
         }
 
         private void FrmCantidadPersona_Load(object sender, EventArgs e)
@@ -90,6 +91,73 @@ namespace RestaurantApp
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void BtnContinue_Click(object sender, EventArgs e)
+        {
+            IteratorQuantityPeople();
+        }
+
+
+        private void IteratorQuantityPeople()
+        {
+            ComboBoxItem QuantityPeople = CbxCantidadDePersonas.SelectedItem as ComboBoxItem;
+            if (QuantityPeople.Value == null)
+            {
+
+            }
+            else
+            {
+                FrmTakeOrder[] takeOrders = new FrmTakeOrder[4];
+                RepositoryOrders.Instancia.PeopleQuantity = (int)QuantityPeople.Value;
+
+                for (int i = 0; i < RepositoryOrders.Instancia.PeopleQuantity; i++)
+                {
+                    takeOrders[i] = new FrmTakeOrder(i + 1);
+                    takeOrders[i].ShowDialog();
+                }
+
+                FrmQuestion question = new FrmQuestion("Do you want to Add all orders from this table?");
+
+                DialogResult result = question.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    ServiceOrders[] serviceOrders = new ServiceOrders[4];
+                    Orders[] orders = new Orders[4];
+
+                    for (int i = 0; i < RepositoryOrders.Instancia.PeopleQuantity; i++)
+                    {
+                        orders[i] = new Orders()
+                        {
+                            ClientName = takeOrders[i].txtName.Text,
+                            MainDish = takeOrders[i].CbxMainDishes.Text,
+                            EntryDish = takeOrders[i].CbxEntryDishes.Text,
+                            DessertDish = takeOrders[i].CbxDessertDishes.Text,
+                            Beverage = takeOrders[i].CbxBeverage.Text
+                        };
+                        serviceOrders[i] = new ServiceOrders();
+                        serviceOrders[i].Add(orders[i]);
+                    }
+
+
+                }
+                else
+                {
+                    this.Close();
+                }
+            }
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void FrmPeopleQuantity_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FrmHome.Instancia.Show();
         }
     }
 }

@@ -6,14 +6,16 @@ using System.Runtime.InteropServices;
 
 namespace RestaurantApp
 {
-    public partial class FrmHome : Form
+    public sealed partial class FrmHome : Form
     {
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int IParam);
 
-        public FrmHome()
+
+        public static FrmHome Instancia { get; } = new FrmHome();
+        private FrmHome()
         {
             InitializeComponent();
         }
@@ -51,6 +53,8 @@ namespace RestaurantApp
 
         private void btnMesa1_Click(object sender, EventArgs e)
         {
+            FrmPeopleQuantity order = new FrmPeopleQuantity();
+            order.Show();
             this.Hide();
         }
 

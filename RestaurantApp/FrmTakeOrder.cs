@@ -16,9 +16,10 @@ namespace RestaurantApp
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int IParam);
-        public FrmTakeOrder()
+        public FrmTakeOrder(int NumberPeople)
         {
             InitializeComponent();
+            LblTitle.Text = $"Order #{NumberPeople}";
         }
 
 
@@ -289,6 +290,11 @@ namespace RestaurantApp
             CbxBeverage.Items.Add(BeverageFour);
             CbxBeverage.Items.Add(BeverageFive);
             CbxBeverage.SelectedIndex = 0;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
