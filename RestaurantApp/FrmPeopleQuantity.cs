@@ -129,6 +129,7 @@ namespace RestaurantApp
                 FrmTakeOrder[] takeOrders = new FrmTakeOrder[4];
                 RepositoryOrders.Instancia.PeopleQuantity = (int)QuantityPeople.Value;
                 int i = 0;
+                int j = 0;
                 while ( i < RepositoryOrders.Instancia.PeopleQuantity)
                 {
                     takeOrders[i] = new FrmTakeOrder(i + 1);
@@ -154,7 +155,6 @@ namespace RestaurantApp
                     {
                         ServiceOrders[] serviceOrders = new ServiceOrders[4];
                         Orders[] orders = new Orders[4];
-                        int j = 0;
                         while ( j < RepositoryOrders.Instancia.PeopleQuantity)
                         {
                             orders[j] = new Orders()
@@ -166,7 +166,7 @@ namespace RestaurantApp
                                 Beverage = takeOrders[j].CbxBeverage.Text
                             };
                             serviceOrders[j] = new ServiceOrders();
-                            serviceOrders[i].Add(orders[j]);
+                            serviceOrders[j].Add(orders[j]);
                             j = j + 1;
                         }
                         FrmWarning warning = new FrmWarning("All orders was Add sucesfully, please click continue");
