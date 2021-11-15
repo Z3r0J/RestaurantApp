@@ -128,8 +128,8 @@ namespace RestaurantApp
             {
                 FrmTakeOrder[] takeOrders = new FrmTakeOrder[4];
                 RepositoryOrders.Instancia.PeopleQuantity = (int)QuantityPeople.Value;
-
-                for (int i = 0; i < RepositoryOrders.Instancia.PeopleQuantity; i++)
+                int i = 0;
+                while ( i < RepositoryOrders.Instancia.PeopleQuantity)
                 {
                     takeOrders[i] = new FrmTakeOrder(i + 1);
                     this.Hide();
@@ -141,6 +141,7 @@ namespace RestaurantApp
                         cancelOrders = true;
                         break;
                     }
+                    i = i + 1;
                 }
 
                 if (cancelOrders != true)
@@ -153,19 +154,20 @@ namespace RestaurantApp
                     {
                         ServiceOrders[] serviceOrders = new ServiceOrders[4];
                         Orders[] orders = new Orders[4];
-
-                        for (int i = 0; i < RepositoryOrders.Instancia.PeopleQuantity; i++)
+                        int j = 0;
+                        while ( j < RepositoryOrders.Instancia.PeopleQuantity)
                         {
-                            orders[i] = new Orders()
+                            orders[j] = new Orders()
                             {
-                                ClientName = takeOrders[i].txtName.Text,
-                                MainDish = takeOrders[i].CbxMainDishes.Text,
-                                EntryDish = takeOrders[i].CbxEntryDishes.Text,
-                                DessertDish = takeOrders[i].CbxDessertDishes.Text,
-                                Beverage = takeOrders[i].CbxBeverage.Text
+                                ClientName = takeOrders[j].txtName.Text,
+                                MainDish = takeOrders[j].CbxMainDishes.Text,
+                                EntryDish = takeOrders[j].CbxEntryDishes.Text,
+                                DessertDish = takeOrders[j].CbxDessertDishes.Text,
+                                Beverage = takeOrders[j].CbxBeverage.Text
                             };
-                            serviceOrders[i] = new ServiceOrders();
-                            serviceOrders[i].Add(orders[i]);
+                            serviceOrders[j] = new ServiceOrders();
+                            serviceOrders[i].Add(orders[j]);
+                            j = j + 1;
                         }
                         FrmWarning warning = new FrmWarning("All orders was Add sucesfully, please click continue");
                         warning.ShowDialog();
